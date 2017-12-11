@@ -146,3 +146,18 @@ str.toLowerCase();  // "string"
 // trim: erases whitespace characters from start and end
 str = "  ABC  ";
 str.trim();  // "ABC"
+
+
+
+///////////////////////////////////////////////////////////
+///////////////////// TRY, CATCH and FINALLY //////////////
+///////////////////////////////////////////////////////////
+const num = 123;
+try {
+	num.split("");
+} 
+catch (e) {
+    console.log(e.message);
+}
+// Output: num is not a function.
+
