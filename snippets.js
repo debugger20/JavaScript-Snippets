@@ -28,6 +28,9 @@ nums.forEach(function(el, index, array) {
 // iterate over an array using for .. of
 for (let el of nums) { console.log("el: ", el); }
 
+// iterate over an array using for .. in
+for (let i of nums) { console.log("el: ", nums[i]); }
+
 // Appending new number at the end of the array.
 nums.push(5);
 
@@ -161,3 +164,30 @@ catch (e) {
 }
 // Output: num is not a function.
 
+
+
+///////////////////////////////////////////////////////////
+/////////////////////   OBJECTS  //////////////////////////
+///////////////////////////////////////////////////////////
+
+// Declaring an object with two properties. (using object initializer)
+var actor = {
+	Name: "Russell Crowe",
+	Age: 55
+};
+actor['Name']  // Accessing an object property using bracket notation
+actor.Name     // Accessing an object property using dot notation
+
+actor.EyeColor = "Blue";   // Adding a new property
+
+// Initialize an object
+var obj = {};                // object initializer
+var obj = new Object();      // new Object()
+var obj2 = Object.create(x); // creates object from another object.
+
+// Define the object type by writing a constructor function.
+function Actor(Name, Age) {
+	this.Name = Name;
+	this.Age  = Age;
+}
+var ac1 = new Actor("Tom Cruise", 57);
