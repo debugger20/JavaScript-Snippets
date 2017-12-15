@@ -391,3 +391,64 @@ const lens = ["first", "second", "third"].map((a) => a.length);   // Output: [5,
 
 // Find all elements in an array that are greater than 3.
 [1,2,3,4,5].filter(a => a > 3);   // Output: [4,5]
+
+
+
+///////////////////////////////////////////////////////////////////
+/////////////////////   REGULAR EXPRESSIONS  //////////////////////
+///////////////////////////////////////////////////////////////////
+
+// Two ways to declare regular expressions
+const re = new RegExp('ab+c');
+const re = /'ab+c'/;
+
+// new RegExp(pattern[, flags])
+// flags:
+// g: global match
+// i: ignore case
+// m: multiline
+// u: unicode
+// y: sticky
+
+// Character classes
+// .  => a single char
+// \d => a single digit
+// \D => a single non digit
+// \w => a single alpha numeric 
+// \W => a single non alpha numeric
+// \s => a single whitespace
+// \S => A single non-whitespace
+
+// Character sets
+// [abcd] matches anyone character from the set {a,b,c,d}. Equivalent [a-d]
+// a|b => a or b
+//   Boundaries:
+//     ^ matches beginning of input
+//     $ matches end of input
+//   Grouping:
+//     (a)   => Matches a and remembers the match
+//     (?:a) => Matches a but does not remember the match.
+//    Quantifiers:
+//      * => 0 or more times
+//      + => 1 or more times
+//      ? => 0 or 1 time
+//      {n} => exactly n times
+//      {n,}  => at least n times
+//      {n,m} => at least n times at most m times
+
+// RegExp methods
+// test: executes a search for a match between regular expression and a string.
+var re = /^learn/;
+var str1 = "learn it now";
+re.test(str1);  //returns true
+
+// exec: executes a search for a match in a specified string.
+// if no match, returns null
+var re = /^learn\s([a-z]+)\s([a-z]+)/;
+var str1 = "learn it now";
+re.exec(str1);   // returns array ['learn it now', 'it', 'now']
+
+// search: returns the index of first match of the regular expression.
+var re = /learn/;
+var str1 = "learn it now";
+re.search(str1);   // returns 0
