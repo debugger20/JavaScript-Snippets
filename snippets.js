@@ -54,6 +54,8 @@ nums.splice(position, nofElementsToRemove);
 // copy elements in an array.  newArray = nums, it just gets the reference of nums and anything done in newArray will effect nums, and vice versa.
 let newArray = nums.slice();
 
+// adding all elements in array using reduce method.
+[1,2,3].reduce((a,b) => a + b, 0);  // outputs 6
 
 ////////////////////////////////////////////
 ////////////    STRINGS       //////////////
@@ -191,3 +193,140 @@ function Actor(Name, Age) {
 	this.Age  = Age;
 }
 var ac1 = new Actor("Tom Cruise", 57);
+
+
+
+///////////////////////////////////////////////////////////
+/////////////////////   CLASSES  //////////////////////////
+///////////////////////////////////////////////////////////
+
+// Defining class using functions
+// Define property and methods using this keyword.
+function Fruit(type) {
+	this.type = type;
+	this.color = "unknown";
+	this.getInformation = getFruitInformation;
+}
+
+function getFruitInformation() {
+	return "This " + this.type + " is " + this.color + ".";
+}
+
+// Create an object using new keyword
+let lime = new Fruit("Mexican lime");
+console.log(lime.getInformation());
+
+
+// Defining class method internally
+// Drawback of internally defined functions: 
+// It recreates this function every time we create a new Fruit object.
+function Fruit(type) {
+	this.type = type;
+	this.color = "unknown";
+	this.getInformation = function() {
+		return "This " + this.type + " is " + this.color + ".";
+	}
+}
+
+
+// Adding functions using prototype property
+// When we add methods and properties to the prototype, they are accessible to all instances of that function.
+function Fruit(type) {
+	this.type = type;
+	this.color = "unknown";
+}
+Fruit.prototype.getInformation = function() {
+	return "This " + this.type + " is " + this.color + ".";
+}
+
+
+// We can define object properties and functions using object literals
+let lime = {
+	type: "Mexican lime",
+	color: "green",
+	getInfo: function() {
+		return "This " + this.type + " is " + this.color + ".";
+	}
+}
+
+
+// ES6 introduces new keyword class to define classes.
+// An important difference between function declarations and class declarations is 
+// that function declarations are hoisted (i.e., can be referenced before declared)
+class Polygon {
+	constructor(height, width) {
+		this.height = height;
+		this.width = width;
+	}
+}
+
+let p = new Polygon(1, 2);
+
+
+// Classes can be defined using class expressions (either named or unnamed)
+let Polygon = class Polygon {   // named
+	constructor(height, width) {
+		this.height = height;
+		this.width = width;
+	}
+}
+let p = new Polygon(1, 2);
+
+
+// Defining static methods
+// Static methods are relevant to all instances of a class
+class Point {
+	constructor(x, y) {
+		this.x = x;
+		this.y = y;
+	}
+	static distance(a, b) {
+		const dx = a.x - b.x;
+		const dy = a.y - b.y;
+		return Math.sqrt(dx * dx + dy * dy);
+	}
+}
+
+const p1 = new Point(5, 5);
+const p2 = new Point(10, 10);
+
+// Access to the static method will be achieved only using class name
+console.log(Point.distance(p1, p2));
+
+
+// Inheritence using extends keyword.
+class Animal {
+	constructor(name) {
+		this.name = name;
+	}
+	speak() {
+		console.log(this.name, "speaks.");
+	}
+}
+
+class Dog extends Animal {
+	speak() {
+		console.log(this.name, "barks.");
+	}
+}
+
+// Functional classes can be extended using extends keyword
+function Animal(name) {
+	this.name = name;
+}
+Animal.prototype.speak = function() {
+	console.log(this.name, "speaks.");
+}
+class Cat extends Animal {
+	speak() {
+		console.log(this.name, "mouww.");
+	}
+}
+
+// super keyword is used for calling functions on object's parent.
+class Dog extends Animal {
+	speak() {
+		super.speak();
+		console.log(this.name, "barks.");
+	}
+}
