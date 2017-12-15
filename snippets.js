@@ -364,3 +364,30 @@ function foo(strings, ...values) {
 var a = 5;
 var b = 10;
 foo`Sum ${a+b}Product ${a*b}`;
+
+
+///////////////////////////////////////////////////////////////////
+/////////////////////   ARROW FUNCTIONS  //////////////////////////
+///////////////////////////////////////////////////////////////////
+
+// Lexically bind the this value while using less syntax than a typical function expression.
+// Arrow functions are always anonymous.
+// (parameter) => { statements }
+// (parameter) => { expression }
+// (parameter) => { return expression }
+// (param1, param2, ..., paramN) => { statements }
+// (param1, param2, ..., paramN) => { expression }
+// (param1, param2, ..., paramN) => { return expression }
+
+
+const makeArray = (...values) => { return values };
+console.log(makeArray(1,2,3,4,5));   // Outputs: [1,2,3,4,5]
+
+const getSum = (a, b) => { return a + b };
+console.log(getSum(2, 4));
+
+// Find length of each array elements and put it into an array using arrow functions.
+const lens = ["first", "second", "third"].map((a) => a.length);   // Output: [5, 6, 5]
+
+// Find all elements in an array that are greater than 3.
+[1,2,3,4,5].filter(a => a > 3);   // Output: [4,5]
