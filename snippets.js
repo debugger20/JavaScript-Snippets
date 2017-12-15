@@ -330,3 +330,37 @@ class Dog extends Animal {
 		console.log(this.name, "barks.");
 	}
 }
+
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////   TEMPLATE LITERALS  //////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+// Template literals are string literals that allow for embedded expressions.
+// They are wrapped in backtick(`) characters.
+// They can contain placeholders, which are preceded by '$' sign wrapped in curlies({}).
+console.log(`first line
+second line`);  // prints "first line" in first line. "second line" in second line.
+
+// It may contain expressions
+const a = 2;
+const b = 3;
+console.log(`The sum of a and b is ${a + b}.`);
+
+
+// Tagged template literals
+// They allow to use a function to modify the output of a template literal.
+
+// First argument will be array of string literals.
+// The subsequently processed arguments are the values of the substitution expression.
+function foo(strings, ...values) {
+	for (str of strings) {
+		console.log(str);
+	}
+	for (val of values) {
+		console.log(val);
+	}
+}
+var a = 5;
+var b = 10;
+foo`Sum ${a+b}Product ${a*b}`;
