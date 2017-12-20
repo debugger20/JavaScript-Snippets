@@ -452,3 +452,52 @@ re.exec(str1);   // returns array ['learn it now', 'it', 'now']
 var re = /learn/;
 var str1 = "learn it now";
 re.search(str1);   // returns 0
+
+
+///////////////////////////////////////////////////////////////////
+/////////////////////   WORKING WITH HTML ELEMENTS ////////////////
+///////////////////////////////////////////////////////////////////
+
+// To write js scripts inside the HTML elements
+<body>
+    <script>
+        /* Write JS code here */
+    </script>
+</body>
+
+// To write js script as a separate file apart from HTML file
+<body>
+    <script src="js-file-path" type="text/javascript"></script>
+</body>
+
+
+// Creating a button using javascript inside HTML file.
+
+// Creates a clickable button object.
+var clickMeButton = document.createElement('button');
+
+// Sets button id
+clickMeButton.id = 'myButton';
+
+// Sets button label
+clickMeButton.innerHTML = 'Click Me';
+
+// Sets background color
+clickMeButton.style.background = '#4FFF8F';
+
+// Appends button to the body of the document as a child.
+document.body.appendChild(clickMeButton);
+
+// Getting button object by using its id.
+var clickMeButton = document.getElementById('myButton');
+clickMeButton.innerHTML = 'This is my new label text!';
+
+// Setting the actions on buttons - first way
+clickMeButton.onclick = function() {
+	clickMeButton.innerHTML = "You clicked me!";
+}
+
+// Setting the actions on buttons - second way
+clickMeButton.addEventListener("click", function() {
+	clickMeButton.innerHTML = "You clicked me!";
+});
