@@ -194,6 +194,24 @@ function Actor(Name, Age) {
 }
 var ac1 = new Actor("Tom Cruise", 57);
 
+// Declaring getter and setter in object initializers
+let person = {
+  _name: 'James Smith',
+  _age: 34,
+  set age(a) {
+    if (typeof a === 'number') {
+	    this._age = a;    
+    }
+    else {
+      return 'Invalid input';
+    }
+  },
+  get age() {
+    console.log(`${this._name} is ${this._age} years old.`);
+    return this._age;
+  }
+};
+person.age = 39;
 
 
 ///////////////////////////////////////////////////////////
